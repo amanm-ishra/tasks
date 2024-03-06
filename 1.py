@@ -1,25 +1,18 @@
-def addition(a,b):
-	return a+b
+def fahrenheit_to_celsius(fahrenheit):
+    celsius = (fahrenheit - 32) * 5/9
+    return celsius
 
-def substraction(a,b):
-	return a-b
+def celsius_to_fahrenheit(celsius):
+    fahrenheit = celsius * 9/5 + 32
+    return fahrenheit
+temperature = float(input("Enter the temperature: "))
+unit = input("Enter the unit (C for Celsius, F for Fahrenheit): ")
 
-def multiplication(a,b):
-	return a*b
-
-def divsion(a,b):
-	return a/b
-
-a=float(input("enter first number:"))
-o=input("Add->1\nSub->2\nMulti->3\nDivision->4\nenter operation:")
-b=float(input("enter second number:"))
-if o=="1":
-	print(addition(a,b))
-elif o=="2":
-	print(substraction(a,b))
-elif o=="3":
-	print(multiplication(a,b))
-elif o=="4":
-	print(divsion(a,b))
+if unit.upper() == 'C':
+    converted_temperature = celsius_to_fahrenheit(temperature)
+    print(str(temperature)+"°C is equal to"+str(converted_temperature)+"°F")
+elif unit.upper() == 'F':
+    converted_temperature = fahrenheit_to_celsius(temperature)
+    print(str(temperature)+"°F is equal to"+str(converted_temperature)+"°C")
 else:
-	print("not valid input . . .")
+    print("Invalid unit. Please enter 'C' or 'F'.")
